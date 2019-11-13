@@ -11,7 +11,6 @@
  *              as well.
  ******************************************************************************
  */
-
 select  Summoner_name, Champion_n
 from    summoner, riot_reward, play
 where   Division='Challenger'

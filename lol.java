@@ -49,6 +49,8 @@ class lol {
                    break;
         case '4' : s1.select_summoner(conn);
                    break;
+        case '5' : s1.update_summoner(conn);
+                   break;
         case 'q' : done = true;
                    break;
         default  : System.out.println("Type in option again");

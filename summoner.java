@@ -11,14 +11,15 @@ import java.io.*;
 class summoner {
 
     void print_menu() {
-        System.out.println("\n      LEAGUE OF LEGENDS\n"
-                            + "==============================\n");
-        System.out.println("(1) Add Summoner");
-        System.out.println("(2) Add Rune Page");
-        System.out.println("(3) Add Play");
-        System.out.println("(4) Select Champ Pool");
-        System.out.println("(5) Update Summoner W/L");
-        System.out.println("(q) Quit\n");
+        System.out.println("\n      LEAGUE OF LEGENDS\n" +
+                           "==============================\n"           );
+        System.out.println("(1) Add Summoner"                           );
+        System.out.println("(d) Remove Summoner (Tribunal Goodbye XD)"  );
+        System.out.println("(2) Add Rune Page"                          );
+        System.out.println("(3) Add Play"                               );
+        System.out.println("(4) Select Champ Pool"                      );
+        System.out.println("(5) Update Summoner W/L"                    );
+        System.out.println("(q) Quit\n"                                 );
     }
 
     void add_summoner(Connection conn) 
@@ -146,12 +147,7 @@ class summoner {
             stmt.setInt     (1, Integer.parseInt(wins));
             stmt.setInt     (2, Integer.parseInt(losses));
             stmt.setString  (3, Summoner_name);
-            /*String query = " update summoner set wins = '" + Integer.parseInt(wins)
-                            + "', losses = '" + Integer.parseInt(losses)
-                            + "', where summoner.Summoner_name = '"
-                            + Summoner_name + "'"; 
-            */
-        
+
             // create the mysql insert preparedstatement
             try {
                 stmt.executeUpdate();
@@ -166,61 +162,43 @@ class summoner {
             stmt.close();
             System.out.println("\n" + Summoner_name + "'s wins/losses were updated!");
         }
-      /*  
 
-      void select_course(Connection conn) 
+
+    void remove_summoner(Connection conn) 
         throws SQLException, IOException {
 
-        String query1 = "select distinct lineno,courses.cno,ctitle " +
-                        "from courses,catalog " +
-                        "where courses.cno = catalog.cno and term = '";
-        String query;
-        String term_in = readEntry("Term: ");
-        query = query1 + term_in + "'";
-         
+        String Summoner_n = readEntry("Summoner Name *DELETING*: ");
+
+        String query  = " delete from rune_page where Sname='"          + Summoner_n + "'";
+        String query1 = " delete from summoner where Summoner_name='"   + Summoner_n +"'";
+        String query2 = " delete from play  where Summoner_n='"         + Summoner_n +"'";
+        String query3 = " delete from riot_reward where SumName='"      + Summoner_n +"'";
+
+        conn.setAutoCommit(false);
         Statement stmt = conn.createStatement (); 
-        ResultSet rset = stmt.executeQuery(query);
-        System.out.println("");
-        while (rset.next ()) { 
-          System.out.println(rset.getString(1) + "   " +
-                             rset.getString(2) + "   " +
-                             rset.getString(3));
-        } 
-        System.out.println("");
-        String ls = readEntry("Select a course line number: ");
-        
-        grade2 g2 = new grade2();
-        boolean done;
-        char ch,ch1;
+        int rows;      
+        //PreparedStatement stmt = conn.prepareStatement(query);
 
-        done = false;
-        do {
-          g2.print_menu();
-          System.out.print("Type in your option:");
-          System.out.flush();
-          ch = (char) System.in.read();
-          ch1 = (char) System.in.read();
-          switch (ch) {
-            case '1' : g2.add_enrolls(conn,term_in,ls);
-                       break;
-            case '2' : g2.add_course_component(conn,term_in,ls);
-                       break;
-            case '3' : g2.add_scores(conn,term_in,ls);
-                       break;
-            case '4' : g2.modify_score(conn,term_in,ls);
-                       break;
-            case '5' : g2.drop_student(conn,term_in,ls);
-                       break;
-            case '6' : g2.print_report(conn,term_in,ls);
-                       break;
-            case 'q' : done = true;
-                       break;
-            default  : System.out.println("Type in option again");
-          }
-        } while (!done);
-
-      }
-      */
+        //stmt.setString (1, Summoner_n);
+        try {
+            rows = stmt.executeUpdate(query);
+            rows = stmt.executeUpdate(query1);
+            rows = stmt.executeUpdate(query2);
+            rows = stmt.executeUpdate(query3);
+        } catch (SQLException e) {
+            System.out.println("Error Deleting Summoner");
+            while (e != null) {
+                System.out.println("Message     : " + e.getMessage());
+                e = e.getNextException();
+            }
+            return;
+        }
+        conn.commit();
+        conn.setAutoCommit(true); 
+        stmt.close();
+        System.out.println("\n" + Summoner_n + " Was Permabanned from the database!");
+    }
+    
     //readEntry function -- to read input string
     static String readEntry(String prompt) {
     try {

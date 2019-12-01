@@ -53,6 +53,8 @@ class lol {
                    break;
         case 'q' : done = true;
                    break;
+        case 'd' : s1.remove_summoner(conn);
+                   break;
         default  : System.out.println("Type in option again");
       }
     } while (!done);

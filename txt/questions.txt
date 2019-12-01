@@ -1,0 +1,39 @@
+SQL> @question.sql
+
+SUMMONER_NAME   CHAMPION_N                                                                                                                       
+--------------- ---------------                                                                                                                  
+Disable Chat    Diana                                                                                                                            
+Disable Chat    Elise                                                                                                                            
+Disable Chat    Olaf                                                                                                                             
+Disable Chat    Taric                                                                                                                            
+Disable Chat    Vayne                                                                                                                            
+
+
+RUNE_ID_N NAME            KEYSTONE        ADAPT_KEYSTONE                                                                                         
+--------- --------------- --------------- ---------------                                                                                        
+323456789 GG              Precision       Resolve                                                                                                
+523456789 Same            Sorcery         Precision                                                                                              
+
+
+CHAMPION_NAME                                                                                                                                    
+---------------                                                                                                                                  
+Ekko                                                                                                                                             
+Elise                                                                                                                                            
+Gragas                                                                                                                                           
+Graves                                                                                                                                           
+Hecarim                                                                                                                                          
+Ivern                                                                                                                                            
+Jarvan IV                                                                                                                                        
+Kayn                                                                                                                                             
+Khazix                                                                                                                                           
+Lee Sin                                                                                                                                          
+Nidalee                                                                                                                                          
+Olaf                                                                                                                                             
+Reksai                                                                                                                                           
+Rengar                                                                                                                                           
+Udyr                                                                                                                                             
+Volibear                                                                                                                                         
+
+16 rows selected.
+
+SQL> spool off

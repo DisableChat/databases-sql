@@ -1,0 +1,72 @@
+SQL> select * from summoner;
+
+SUMMONER_NAME          MMR DIVISION        HONOR_LEVEL MASTERY_SCORE       WINS     LOSSES                                                       
+--------------- ---------- --------------- ----------- ------------- ---------- ----------                                                       
+Disable Chat          3000 Challenger                5           405        254        174                                                       
+Slazlon               1710 Gold 2                    4           204        843        849                                                       
+Micah                 2400 Diamond 1                 4           300        502        498                                                       
+Gosu                  2400 Diamond 1                 3           183        754        698                                                       
+Faker                 3000 Challenger                5           509        200        143                                                       
+Teddy                 2600 Master                    5           338        120         60                                                       
+Penut                 3000 Challenger                5           405        100         80                                                       
+RagingMonkey          1500 Gold 5                    2           123       1024       1048                                                       
+Bacon                 1640 Gold 3                    1           365        428        421                                                       
+Rip                   1710 Gold 2                    0           100        210        231                                                       
+Same                  1290 Silver 3                  4           312        831        890                                                       
+Bad Player            1150 Silver 5                  5           256       1121       1200                                                       
+
+12 rows selected.
+
+SQL> select * from rune_page;
+
+RUNE_ID_N NAME            KEYSTONE        ADAPT_KEYSTONE  SNAME                                                                                  
+--------- --------------- --------------- --------------- ---------------                                                                        
+123456789 Hola            Precision       Domination      Disable Chat                                                                           
+223456789 Gogogo          Sorcery         Resolve         Disable Chat                                                                           
+323456789 GG              Precision       Resolve         Faker                                                                                  
+423456789 Uh              Precision       Sorcery         Micah                                                                                  
+523456789 Same            Sorcery         Precision       Faker                                                                                  
+663456789 Something       Resolve         Precision       Disable Chat                                                                           
+773456789 My rune         Resolve         Domination      Teddy                                                                                  
+923456789 Lol             Precision       Domination      Micah                                                                                  
+123123123 Ripironi        Precision       Domination      Slazlon                                                                                
+
+9 rows selected.
+
+SQL> select * from riot_reward;
+
+CID       CHA SUMNAME         CHAL_DAT                                                                                                           
+--------- --- --------------- --------                                                                                                           
+999888777 001 Disable Chat    08212019                                                                                                           
+999888666 002 Faker           09022019                                                                                                           
+999888555 003 Penut           10202019                                                                                                           
+
+SQL> select * from play;
+
+SUMMONER_N      CHAMPION_N                                                                                                                       
+--------------- ---------------                                                                                                                  
+Disable Chat    Diana                                                                                                                            
+Disable Chat    Elise                                                                                                                            
+Disable Chat    Olaf                                                                                                                             
+Disable Chat    Taric                                                                                                                            
+Disable Chat    Vayne                                                                                                                            
+Faker           Lucian                                                                                                                           
+Faker           Lulu                                                                                                                             
+Faker           Oriana                                                                                                                           
+Faker           Zed                                                                                                                              
+Slazlon         Blitz                                                                                                                            
+Slazlon         Ezreal                                                                                                                           
+
+11 rows selected.
+
+SQL> select * from equip;
+
+NAME_OF_CHAMP   RUNE_ID_N                                                                                                                        
+--------------- ---------                                                                                                                        
+Blitz           123123123                                                                                                                        
+Elise           223456789                                                                                                                        
+Lucian          323456789                                                                                                                        
+Olaf            123456789                                                                                                                        
+Vayne           123456789                                                                                                                        
+
+SQL> spool off

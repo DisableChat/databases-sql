@@ -1,0 +1,145 @@
+SQL> select * from champion;
+
+CHAMPION_NAME   POS PASSIVE              Q                    W                    E                    ULTIMATE             ROLE                
+--------------- --- -------------------- -------------------- -------------------- -------------------- -------------------- ---------------     
+Vayne           ADC Night Hunter         Tumble               Silver Bolts         Condemn              Final Hour           Hyper Carry         
+Aatrox          TOP Deathbringer         Darkin Dlade         Infernal Chains      Umbral Dash          World Ender          Bruiser             
+Ahri            MID Vastayan Grace       Orb of Deception     Fox-Fire             Charm                Spirit Rush          Mage                
+Akali           MID Assassin Mark        Five Point Strike    Twilight Shroud      Shuriken Flip        Perfect Execution    Assassin            
+Alistar         SUP Triumphant Roar      Pulverize            Headbutt             Trample              Unbreakable Will     Tank                
+Ashe            ADC Frost Shot           Ramper Focus         Volley               Hawkshot             Enchanted Arrow      Ranged Carry        
+Azir            MID Shurima Legacy       Conquering Sands     Arise                Shifting Sands       Emperor Divide       Mage                
+Bard            SUP Traveler Call        Cosmic Binding       Caretaker Shrine     Magical Journey      Tempered Fate        Mage                
+Blitz           SUP Mana Barrier         Rocket Grab          Overdrive            Power Fist           Static Field         Bruiser             
+Braum           SUP Concussive Blows     Winter Bite          Stand Behind Me      Unbreakable          Glacial Fissure      Tank                
+Caitlyn         ADC Headshot             Peacemaker           Yordle Snap Trap     90 Caliber net       Ace in the Hole      Ranged Carry        
+Camile          TOP Adaptive Defense     Precision Protocol   Tatical Sweep        Hookshot             Hextech Ultimatum    Bruiser             
+Cassiopeia      MID Serpentine Grace     Noxious Blast        Miasma               Twin Fang            Petrifying Gaze      Mage                
+Diana           MID Moonsilver Blade     Crescent Strike      Pale Cascade         Moonfall             Lunar Rush           Assassin            
+Dr. Mundo       TOP Adrenaline Rush      Infected Cleaver     Burning Agony        Masochism            Sadism               Tank                
+Draven          ADC League of Draven     Spinning Axe         Blood Rush           Stand Aside          Whirling Death       Ranged Carry        
+Ekko            JNG Z-Drive              Timewinder           Parallel Convergence Phase Dive           Chronobreak          Mage                
+Elise           JNG Spider Queen         Neurotoxin           Volatile Spiderling  Cacoon               Spider Form          Assassin            
+Ezreal          ADC Rising Spell Force   Mystic Shot          Essence Flux         Arcane Shift         Trueshot Barrage     Ranged Carry        
+Fiora           TOP Duelist Dance        Lunge                Riposte              Bladework            Grand Challenge      Bruiser             
+Fizz            MID Nimble Fighter       Urchin Strike        Seastone Trident     Trickster            Chum the Waters      Assassin            
+Galio           MID Colossal Smash       Winds of War         Shield of Durand     Justice Punch        Hero Entrance        Tank                
+Gangplank       TOP Trial by Fire        Parrley              Remove Scurvy        Powder Keg           Cannon Barrage       Fighter             
+Garen           TOP Perseverance         Decisive Strike      Courage              Judgment             Demacian Justice     Bruiser             
+Gragas          JNG Happy Hour           Barrel Roll          Druken Rage          Body Slam            Explosive Cask       Bruiser             
+Graves          JNG New Destiny          End of the Line      Smoke Screen         Quickdraw            Collateral Damage    Fighter             
+Hecarim         JNG Warpath              Rampage              Spirit of Dread      Devastating Charge   Onslaught of Shadows Bruiser             
+Irelia          TOP Ionian Fervor        Bladesurge           Defiant Dance        Flawless Duet        Vanguard Edge        Fighter             
+Ivern           JNG Friend the Forest    Rootcaller           Brushmaker           Triggerseed          Daisy!               Mage                
+Janna           SUP Tailwind             Howling Gale         Zephyr               Eye Of The Storm     Monsoon              Mage                
+Jarvan IV       JNG Martial Cadence      Dragon Strike        Golden Aegis         Demacian Standard    Cataclysm            Bruiser             
+Jax             TOP Relentless Atk       Leap Strike          Empower              Counter Strike       Grand Might          Bruiser             
+Jayce           MID Hextech Capacitor    Shock Blast          Hyper Charge         Acceleration Gate    Mecury Cannon        Fighter             
+Jhin            ADC Whisper              Dancing Grenade      Deadly Flourish      Captive Audience     Curtain Call         Ranged Carry        
+Jinx            ADC Get Excited!         Switcheroo!          Zap!                 Flame Chompers!      Super Mega Rocket!   Hyper Carry         
+Kaisa           ADC Second Skin          Icathian Rain        Void Seeker          Supercharge          Killer Instinct      Ranged Carry        
+Kalista         ADC Martial Poise        Pierce               Sentinel             Rend                 Fate Call            Ranged Carry        
+Karma           SUP Gathering Fire       Inner Flame          Focused Resolve      Inspire              Mantra               Mage                
+Kayn            JNG Darkin Scythe        Reaping Slash        Blade Reach          Shadow Step          Umbral Trespass      Bruiser             
+Khazix          JNG Unseen Threat        Taste Their Fear     Void Spike           Leap                 Void Assult          Assassin            
+Kled            TOP Skaarl, the Lizard   Bear Trap            Violent Tendencies   Jousting             Chaaaaarge!!!        Bruiser             
+Lee Sin         JNG Flurry               Resonating Strike    Safeguard            Tempest              Dragon Rage          Fighter             
+Lucian          ADC Lightslinger         Piercing Light       Ardent Blast         Relentless Pursuit   The Culling          Ranged Carry        
+Lulu            SUP Pix Faerie           Glitterlance         Whimsy               Help, Pix!           Wild Growth          Mage                
+Nami            SUP Surging Tides        Aqua Prison          Ebb and Flow         Tidecaller Blessing  Tidal Wave           Mage                
+Nautilus        SUP Staggering Blow      Dredge Line          Titan Wrath          Riptide              Depth Charge         Tank                
+Nidalee         JNG Prowl                Javelin Toss         Bushwhack            Swipe                Transform            Assassin            
+
+CHAMPION_NAME   POS PASSIVE              Q                    W                    E                    ULTIMATE             ROLE                
+--------------- --- -------------------- -------------------- -------------------- -------------------- -------------------- ---------------     
+Olaf            JNG Berserker Rage       Undertow             Vicious Strikes      Reckless Swing       Ragnarok             Bruiser             
+Oriana          MID Clockwork Windup     CMD:Attack           CMD:Dissonance       CMD:Protect          CMD:Shockwave        Mage                
+Ornn            TOP Living Forge         Volcanic Rupture     Bellows Breath       Searing Charge       Call of Forge God    Tank                
+Reksai          JNG Fury of the XerSai   Prey Seeker          Burrow               Tunnel               Void Rush            Bruiser             
+Rengar          JNG Unseen Predator      Savager              Battle Roar          Bola Strike          Thrill of the Hunt   Assassin            
+Shen            TOP Ki Barrier           Twilight Assult      Spirit Refuge        Shadow Dash          Stand United         Bruiser             
+Singed          TOP Noxious Slipstream   Poison Trail         Mega Adhesive        Fling                Insanity Potion      Tank                
+Taric           SUP Bravado              Starlight Touch      Bastion              Dazzle               Cosmic Radiance      Tank                
+Teemo           TOP Guerrilla Warfare    Blinding Dart        Move Quick           Toxic Shot           Noxious Trap         Mage                
+Thresh          SUP Damnation            Death Sentence       Dark Passage         Flay                 The Box              Fighter             
+Tristana        ADC Draw a Bead          Rapid Fire           Rocket Jump          Explosive Charge     Buster Shot          Ranged Carry        
+Twisted Fate    MID Loaded Dice          Wild Cards           Pick a Card          Stacked Deck         Destiny              Mage                
+Udyr            JNG Monkey Agility       Tiger Stance         Turtle Stance        Bear Stance          Phoenix Stance       Bruiser             
+Vladimir        MID Crimson Pact         Transfusion          Sanguine Pool        Tides of Blood       Hemoplague           Mage                
+Volibear        JNG Chosen of the Storm  Rolling Thunder      Frenzy               Majestic Roar        Thunder Claws        Bruiser             
+Zed             MID Condempt Weak        Razor Shuriken       Living Shadow        Shadow Slash         Death Mark           Assassin            
+
+63 rows selected.
+
+SQL> select * from summoner;
+
+SUMMONER_NAME          MMR DIVISION        HONOR_LEVEL MASTERY_SCORE       WINS     LOSSES                                                       
+--------------- ---------- --------------- ----------- ------------- ---------- ----------                                                       
+Disable Chat          3000 Challenger                5           405        254        174                                                       
+Slazlon               1710 Gold 2                    4           204        843        849                                                       
+Micah                 2400 Diamond 1                 4           300        502        498                                                       
+Gosu                  2400 Diamond 1                 3           183        754        698                                                       
+Faker                 3000 Challenger                5           509        200        143                                                       
+Teddy                 2600 Master                    5           338        120         60                                                       
+Penut                 3000 Challenger                5           405        100         80                                                       
+RagingMonkey          1500 Gold 5                    2           123       1024       1048                                                       
+Bacon                 1640 Gold 3                    1           365        428        421                                                       
+Rip                   1710 Gold 2                    0           100        210        231                                                       
+Same                  1290 Silver 3                  4           312        831        890                                                       
+Bad Player            1150 Silver 5                  5           256       1121       1200                                                       
+
+12 rows selected.
+
+SQL> select * from rune_page;
+
+RUNE_ID_N NAME            KEYSTONE        ADAPT_KEYSTONE  SNAME                                                                                  
+--------- --------------- --------------- --------------- ---------------                                                                        
+123456789 Hola            Precision       Domination      Disable Chat                                                                           
+223456789 Gogogo          Sorcery         Resolve         Disable Chat                                                                           
+323456789 GG              Precision       Resolve         Faker                                                                                  
+423456789 Uh              Precision       Sorcery         Micah                                                                                  
+523456789 Same            Sorcery         Precision       Faker                                                                                  
+663456789 Something       Resolve         Precision       Disable Chat                                                                           
+773456789 My rune         Resolve         Domination      Teddy                                                                                  
+923456789 Lol             Precision       Domination      Micah                                                                                  
+123123123 Ripironi        Precision       Domination      Slazlon                                                                                
+
+9 rows selected.
+
+SQL> select * from riot_reward;
+
+CID       CHA SUMNAME         CHAL_DAT                                                                                                           
+--------- --- --------------- --------                                                                                                           
+999888777 001 Disable Chat    08212019                                                                                                           
+999888666 002 Faker           09022019                                                                                                           
+999888555 003 Penut           10202019                                                                                                           
+
+SQL> select * from play;
+
+SUMMONER_N      CHAMPION_N                                                                                                                       
+--------------- ---------------                                                                                                                  
+Disable Chat    Diana                                                                                                                            
+Disable Chat    Elise                                                                                                                            
+Disable Chat    Olaf                                                                                                                             
+Disable Chat    Taric                                                                                                                            
+Disable Chat    Vayne                                                                                                                            
+Faker           Lucian                                                                                                                           
+Faker           Lulu                                                                                                                             
+Faker           Oriana                                                                                                                           
+Faker           Zed                                                                                                                              
+Slazlon         Blitz                                                                                                                            
+Slazlon         Ezreal                                                                                                                           
+
+11 rows selected.
+
+SQL> select * from equip;
+
+NAME_OF_CHAMP   RUNE_ID_N                                                                                                                        
+--------------- ---------                                                                                                                        
+Blitz           123123123                                                                                                                        
+Elise           223456789                                                                                                                        
+Lucian          323456789                                                                                                                        
+Olaf            123456789                                                                                                                        
+Vayne           123456789                                                                                                                        
+
+SQL> spool off

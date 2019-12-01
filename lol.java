@@ -49,9 +49,11 @@ class lol {
                    break;
         case '3' : s1.add_play(conn);
                    break;
-        case '4' : s1.show_chally(conn);
+        case '4' : s1.update_summoner(conn);
                    break;
-        case '5' : s1.update_summoner(conn);
+        case '5' : s1.show_chally(conn);
+                   break;
+        case '6' : s1.show_champ_by_role(conn);
                    break;
         case 'q' : done = true;
                    break;

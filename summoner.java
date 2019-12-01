@@ -18,8 +18,9 @@ class summoner {
         System.out.println("(d) Remove Summoner (Tribunal Goodbye XD)"  );
         System.out.println("(2) Add Rune Page"                          );
         System.out.println("(3) Add Play"                               );
-        System.out.println("(4) Show Challenger Players and champion's" );
-        System.out.println("(5) Update Summoner W/L"                    );
+        System.out.println("(4) Update Summoner W/L"                    );
+        System.out.println("(5) Show Challenger Players and champion's" );
+        System.out.println("(6) Show Champion's by Possition"           );
         System.out.println("(q) Quit\n"                                 );
     }
 
@@ -147,86 +148,25 @@ class summoner {
                         + " AND Name_of_champ = Champion_n AND Sname = Summoner_n"
                         + " AND Summoner_name = Summoner_n AND rune_id_num = RUne_id_no";
 
-        // Dude make a function for the repeat print statments *TODO* rip...
-        Statement stmt = conn.createStatement ();
+        String query_space   = "15";
+        String query_header  = "\nChallenger Players Picks & Mastery Score\n"
+                                + "=========================================\n";
 
-        ResultSet rset0;
-        ResultSet rset1;
-        ResultSet rset2;
+        String query1_space  = "10";
+        String query1_header = "\nCorrosponding Champs Posstions & Roles\n"
+                                + "=========================================\n";
 
-        try {
-            rset0 = stmt.executeQuery(query);
-        
-            ResultSetMetaData rsmd = rset0.getMetaData();
-            System.out.println("\nChallenger Players Picks & Mastery Score\n"
-                                + "=========================================\n");
-            int columnsNumber = rsmd.getColumnCount();
-            while (rset0.next()) {
-                for (int i = 1; i <= columnsNumber; i++) {
-                    if (i > 1) System.out.print(" ");
-                        String columnValue = rset0.getString(i);
-                            System.out.printf("%-15s", columnValue);
-                }
-                System.out.println("");
-            }
-        } catch (SQLException e) {
-            System.out.println("Problem reading Summoners Tables Boiiii");
-            while (e != null) {
-                System.out.println("Message     : " + e.getMessage());
-                e = e.getNextException();
-            }
-            return;
-        }
-        
-        try {
-            rset1 = stmt.executeQuery(query1);
-        
-            ResultSetMetaData rsmd1 = rset1.getMetaData();
-            System.out.println("\nCorrosponding Champs Posstions & Roles\n"
-                                + "=========================================\n");
-            int columnsNumber = rsmd1.getColumnCount();
-            while (rset1.next()) {
-                for (int i = 1; i <= columnsNumber; i++) {
-                    if (i > 1) System.out.print(" ");
-                        String columnValue = rset1.getString(i);
-                            System.out.printf("%-10s", columnValue);
-                }
-                System.out.println("");
-            }
-        } catch (SQLException e) {
-            System.out.println("Problem reading Summoners Tables Boiiii");
-            while (e != null) {
-                System.out.println("Message     : " + e.getMessage());
-                e = e.getNextException();
-            }
-            return;
-        }
-
-        try {
-            rset2 = stmt.executeQuery(query2);
-        
-            ResultSetMetaData rsmd = rset2.getMetaData();
-            System.out.println("\nCorrosponding Player's Champion Runepages, ID,"
+        String query2_space  = "13";
+        String query2_header =  "\nCorrosponding Player's Champion Runepages, ID,"
                                 + " Primary & secondary keystones!\n"
                                 + "========================================="
-                                + "=======================================\n");
-            int columnsNumber = rsmd.getColumnCount();
-            while (rset2.next()) {
-                for (int i = 1; i <= columnsNumber; i++) {
-                    if (i > 1) System.out.print(" ");
-                        String columnValue = rset2.getString(i);
-                            System.out.printf("%-13s", columnValue);
-                }
-                System.out.println("");
-            }
-        } catch (SQLException e) {
-            System.out.println("Problem reading Summoners Tables Boiiii");
-            while (e != null) {
-                System.out.println("Message     : " + e.getMessage());
-                e = e.getNextException();
-            }
-            return;
-        }
+                                + "=======================================\n";
+
+        Statement stmt = conn.createStatement ();
+
+        print_chally_report(stmt, query,  query_header,  query_space);
+        print_chally_report(stmt, query1, query1_header, query1_space); 
+        print_chally_report(stmt, query2, query2_header, query2_space);
 
     }
 
@@ -347,6 +287,85 @@ class summoner {
             }
              return;
         }
+    }
+
+    void show_champ_by_role(Connection conn) 
+        throws SQLException, IOException {
+
+        String top = "TOP";
+        String jng = "JNG";
+        String mid = "MID";
+        String adc = "ADC";
+        String sup = "SUP";
+
+        Statement stmt = conn.createStatement ();
+         
+        String space = "15";
+        print_champ_by_possition_report(stmt, top, space); 
+        print_champ_by_possition_report(stmt, jng, space); 
+        print_champ_by_possition_report(stmt, mid, space); 
+        print_champ_by_possition_report(stmt, adc, space); 
+        print_champ_by_possition_report(stmt, sup, space); 
+    }
+
+    void print_champ_by_possition_report(Statement stmt, String role, String space) {
+
+        System.out.println( "\n            "+ role + "\n"
+                            + "==============================");
+
+        String query = " select Champion_name, role"
+                     + " from champion where possition = '" + role + "'";
+        try {
+            ResultSet rset0 = stmt.executeQuery(query);
+        
+            ResultSetMetaData rsmd = rset0.getMetaData();
+            int columnsNumber = rsmd.getColumnCount();
+            while (rset0.next()) {
+                for (int i = 1; i <= columnsNumber; i++) {
+                    if (i > 1) System.out.print(" ");
+                        String columnValue = rset0.getString(i);
+                            System.out.printf("%-"+space+"s", columnValue);
+                }
+                System.out.println("");
+            }
+        } catch (SQLException e) {
+            System.out.println("Problem reading Summoners Tables Boiiii");
+            while (e != null) {
+                System.out.println("Message     : " + e.getMessage());
+                e = e.getNextException();
+            }
+            return;
+        }
+
+    }
+
+    void print_chally_report(Statement stmt, String query,
+                             String header, String space) {
+
+        try {
+            ResultSet rset = stmt.executeQuery(query);
+        
+            ResultSetMetaData rsmd = rset.getMetaData();
+            System.out.println(header);
+
+            int columnsNumber = rsmd.getColumnCount();
+            while (rset.next()) {
+                for (int i = 1; i <= columnsNumber; i++) {
+                    if (i > 1) System.out.print(" ");
+                        String columnValue = rset.getString(i);
+                            System.out.printf("%-"+space+"s", columnValue);
+                }
+                System.out.println("");
+            }
+        } catch (SQLException e) {
+            System.out.println("Problem reading Summoners Tables Boiiii");
+            while (e != null) {
+                System.out.println("Message     : " + e.getMessage());
+                e = e.getNextException();
+            }
+            return;
+        }
+
     }
 
     //readEntry function -- to read input string

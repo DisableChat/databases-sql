@@ -47,7 +47,7 @@ class lol {
                    break;
         case '3' : s1.add_play(conn);
                    break;
-        case '4' : s1.select_summoner(conn);
+        case '4' : s1.show_chally(conn);
                    break;
         case '5' : s1.update_summoner(conn);
                    break;

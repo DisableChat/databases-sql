@@ -12,12 +12,12 @@ class summoner {
 
     void print_menu() {
         System.out.println("\n      LEAGUE OF LEGENDS\n" +
-                           "==============================\n"           );
+                           "=========================================\n");
         System.out.println("(1) Add Summoner"                           );
         System.out.println("(d) Remove Summoner (Tribunal Goodbye XD)"  );
         System.out.println("(2) Add Rune Page"                          );
         System.out.println("(3) Add Play"                               );
-        System.out.println("(4) Select Champ Pool"                      );
+        System.out.println("(4) Show Challenger Players and champion's" );
         System.out.println("(5) Update Summoner W/L"                    );
         System.out.println("(q) Quit\n"                                 );
     }
@@ -127,9 +127,107 @@ class summoner {
         System.out.println("\n" + Champion_n + " was added to" + Summoner_n + "'s champ-pool!");
     }
 
-    void select_summoner(Connection conn) 
+    void show_chally(Connection conn) 
         throws SQLException, IOException {
+
+        String query = " select Summoner_name, Champion_n, Mastery_score "
+                        + " from summoner, riot_reward, play"
+                        + " where Division = 'Challenger' AND Summoner_name = Summoner_n"
+                        + " AND Summoner_name = SumName";
+
+        String query1 = " select Champion_name, possition, role "
+                        + " from champion, summoner, play"
+                        + " where Division = 'Challenger' AND Champion_name = Champion_n"
+                        + " AND Summoner_name = Summoner_n";
+
+        String query2 = " select Name_of_champ, Rune_id_no, Sname, keystone, adapt_keystone"
+                        + " from summoner, play, equip, rune_page"
+                        + " where Division = 'Challenger'"
+                        + " AND Name_of_champ = Champion_n AND Sname = Summoner_n"
+                        + " AND Summoner_name = Summoner_n AND rune_id_num = RUne_id_no";
+
+        // Dude make a function for the repeat print statments *TODO* rip...
+        Statement stmt = conn.createStatement ();
+
+        ResultSet rset0;
+        ResultSet rset1;
+        ResultSet rset2;
+
+        try {
+            rset0 = stmt.executeQuery(query);
+        
+            ResultSetMetaData rsmd = rset0.getMetaData();
+            System.out.println("\nChallenger Players Picks & Mastery Score\n"
+                                + "=========================================\n");
+            int columnsNumber = rsmd.getColumnCount();
+            while (rset0.next()) {
+                for (int i = 1; i <= columnsNumber; i++) {
+                    if (i > 1) System.out.print(" ");
+                        String columnValue = rset0.getString(i);
+                            System.out.printf("%-15s", columnValue);
+                }
+                System.out.println("");
+            }
+        } catch (SQLException e) {
+            System.out.println("Problem reading Summoners Tables Boiiii");
+            while (e != null) {
+                System.out.println("Message     : " + e.getMessage());
+                e = e.getNextException();
+            }
+            return;
         }
+        
+        try {
+            rset1 = stmt.executeQuery(query1);
+        
+            ResultSetMetaData rsmd1 = rset1.getMetaData();
+            System.out.println("\nCorrosponding Champs Posstions & Roles\n"
+                                + "=========================================\n");
+            int columnsNumber = rsmd1.getColumnCount();
+            while (rset1.next()) {
+                for (int i = 1; i <= columnsNumber; i++) {
+                    if (i > 1) System.out.print(" ");
+                        String columnValue = rset1.getString(i);
+                            System.out.printf("%-10s", columnValue);
+                }
+                System.out.println("");
+            }
+        } catch (SQLException e) {
+            System.out.println("Problem reading Summoners Tables Boiiii");
+            while (e != null) {
+                System.out.println("Message     : " + e.getMessage());
+                e = e.getNextException();
+            }
+            return;
+        }
+
+        try {
+            rset2 = stmt.executeQuery(query2);
+        
+            ResultSetMetaData rsmd = rset2.getMetaData();
+            System.out.println("\nCorrosponding Player's Champion Runepages, ID,"
+                                + " Primary & secondary keystones!\n"
+                                + "========================================="
+                                + "=======================================\n");
+            int columnsNumber = rsmd.getColumnCount();
+            while (rset2.next()) {
+                for (int i = 1; i <= columnsNumber; i++) {
+                    if (i > 1) System.out.print(" ");
+                        String columnValue = rset2.getString(i);
+                            System.out.printf("%-13s", columnValue);
+                }
+                System.out.println("");
+            }
+        } catch (SQLException e) {
+            System.out.println("Problem reading Summoners Tables Boiiii");
+            while (e != null) {
+                System.out.println("Message     : " + e.getMessage());
+                e = e.getNextException();
+            }
+            return;
+        }
+
+    }
 
     void update_summoner(Connection conn)
         throws SQLException, IOException {
@@ -141,8 +239,8 @@ class summoner {
             PreparedStatement stmt = conn.prepareStatement(query);
 
             String Summoner_name = readEntry("Summoner Name: ");
-            String wins = readEntry("# of win total: ");
-            String losses = readEntry("# of losses total: ");
+            String wins          = readEntry("# of win total: ");
+            String losses        = readEntry("# of losses total: ");
 
             stmt.setInt     (1, Integer.parseInt(wins));
             stmt.setInt     (2, Integer.parseInt(losses));
@@ -176,10 +274,8 @@ class summoner {
 
         conn.setAutoCommit(false);
         Statement stmt = conn.createStatement (); 
-        int rows;      
-        //PreparedStatement stmt = conn.prepareStatement(query);
+        int rows;
 
-        //stmt.setString (1, Summoner_n);
         try {
             rows = stmt.executeUpdate(query);
             rows = stmt.executeUpdate(query1);

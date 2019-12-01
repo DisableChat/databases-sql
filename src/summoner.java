@@ -1,7 +1,9 @@
 /******************************************************************************
- * File:        lol.py
+ * File:        Summoner.py
  * Author:      Wesley Ryder
  * Description: Databases project - prime machines + oracleplus
+ *              Summoner.py allows users to see and update the database
+ *              regarding league of legends
  ******************************************************************************
  */
 

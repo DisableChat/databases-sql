@@ -2,6 +2,8 @@
  * File:        lol.py
  * Author:      Wesley Ryder
  * Description: Databases project - prime machines + oracleplus
+ *              Lol.py is just a menu for the league of legends database
+ *              program, *note* summoner.java must be compiled in order to run
  ******************************************************************************
  */
 
@@ -29,7 +31,6 @@ class lol {
     pass = readEntry("password: ");
 
     //  The following line was modified by Prof. Marling to work on prime
-
     Connection conn = DriverManager.getConnection
        ("jdbc:oracle:thin:@deuce.cs.ohio.edu:1521:class", user, pass);
 

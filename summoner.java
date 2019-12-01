@@ -13,6 +13,7 @@ class summoner {
     void print_menu() {
         System.out.println("\n      LEAGUE OF LEGENDS\n" +
                            "=========================================\n");
+        System.out.println("(p) Display Summoners!!! (NA = Garbage)"    );
         System.out.println("(1) Add Summoner"                           );
         System.out.println("(d) Remove Summoner (Tribunal Goodbye XD)"  );
         System.out.println("(2) Add Rune Page"                          );
@@ -294,7 +295,60 @@ class summoner {
         stmt.close();
         System.out.println("\n" + Summoner_n + " Was Permabanned from the database!");
     }
-    
+
+    void display_summoners(Connection conn) 
+        throws SQLException, IOException {
+
+        String query = " select * from summoner";
+
+        Statement stmt = conn.createStatement ();
+
+        ResultSet rset0;
+
+        try {
+            rset0 = stmt.executeQuery(query);
+        
+            System.out.println("\nLeague Of Legends NA (AKA Garbage) Summonor's\n"
+                                + "================================================="
+                                + "=================================================\n");
+
+            // Handles problems with various variable types in printing result
+            if (rset0 != null) {
+                ResultSetMetaData tmp = rset0.getMetaData();
+                for (int i = 1; i <= tmp.getColumnCount(); i++){
+                    System.out.printf("%-15s", tmp.getColumnName(i));
+                }
+                System.out.println("\n================================================="
+                                 + "=================================================\n");
+
+                while (rset0.next()) {
+                    ResultSetMetaData rsmd = rset0.getMetaData();
+                    for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                        if (i > 1) {
+                        System.out.print(" ");
+                        }
+
+                        int type = rsmd.getColumnType(i);
+                        if (type == Types.VARCHAR || type == Types.CHAR) {
+                            System.out.printf("%-14s", rset0.getString(i));
+                        } else {
+                           System.out.printf("%-14d",rset0.getLong(i));
+                        }
+                    }
+
+                    System.out.println();
+                }
+            }
+        } catch (SQLException e) {
+                System.out.println("Problem reading Summoners Tables Boiiii");
+            while (e != null) {
+                System.out.println("Message     : " + e.getMessage());
+                e = e.getNextException();
+            }
+             return;
+        }
+    }
+
     //readEntry function -- to read input string
     static String readEntry(String prompt) {
     try {

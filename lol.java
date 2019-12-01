@@ -41,6 +41,8 @@ class lol {
       ch = (char) System.in.read();
       ch1 = (char) System.in.read();
       switch (ch) {
+        case 'p' : s1.display_summoners(conn);
+                   break;
         case '1' : s1.add_summoner(conn);
                    break;
         case '2' : s1.add_rune_page(conn);
